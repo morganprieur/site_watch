@@ -1,0 +1,39 @@
+
+{% block view_admins %} 
+<hr>
+    <section class="content">
+
+        <form action="{{ url_for('add_admin') }}" method="post">
+            <input type="hidden"id="admin" name="admin" value="{{ admin.login }}">
+            <p>
+                <button class="w3-button w3-block button-color" type="submit">Ajouter un admin</button>
+            </p>
+        </form> 
+
+        <h3>Tous les admins enregistrés</h3> 
+        
+        <table class="objects_list w3-table w3-striped">
+            <tr class="w3-green">
+                <th>Login</th>
+                <th>Action</th>
+            </tr>
+            {% for res_admin in admins %} 
+            <tr>
+                <td> 
+                    <p>{{ res_admin.login }}</p>
+                </td>
+                <td> 
+                    <form action="{{ url_for('delete') }}" method="post">
+                        <input type="hidden" id="admin" name="admin" value="{{ admin.login }}" />
+                        <input type="hidden" id="res_admin" name="res_admin" value="{{ res_admin.login }}" />
+                        <p>
+                            <button class="w3-button w3-block button-color" type="submit">Delete</button>
+                        </p>
+                    </form>
+                </td>
+            </tr> 
+            {% endfor %}
+        </table> 
+    </section>
+
+{% endblock %} 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+    
+    {% block content %} 
+
+    {% include 'to_logout.html' %} 
+    
+    <section class="content"> 
+
+        {% if admin %} 
+        <form action="{{ url_for('dashboard') }}" method="post">
+            <input type="hidden" id="admin" name="admin" value="{{ admin.login }}">
+            <button class="w3-button w3-block button-color" type="submit">Dashboard</button>
+        </form>
+        {% endif %} 
+
+        <p>
+            <button id="streamButton" class="w3-button w3-block button-color" onclick="toggleStream()">Lancer le stream</button>
+        </p>
+        <br/><br/>
+
+        <!-- Set the initial src to the placeholder image -->
+        <img id="videoFeed" width="640" height="480" 
+            src="../static/camera_off.png" style="display:block;" 
+        />
+
+    </section> 
+    <script type="text/javascript">
+        function toggleStream() {
+            var videoFeed = document.getElementById('videoFeed');
+            var streamButton = document.getElementById('streamButton');
+            
+            if (videoFeed.src.includes('camera_off.png')) {
+                videoFeed.src = "{{ url_for('video_feed', camera_ip=camera.ip)}}";
+                streamButton.innerText = 'Arrêter le stream';
+            } else {
+                videoFeed.src = '/static/camera_off.png';
+                streamButton.innerText = 'Lancer le stream';
+            }
+        }
+    </script> 
+
+    {% endblock %} 

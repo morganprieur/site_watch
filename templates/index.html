@@ -1,0 +1,17 @@
+<!DOCTYPE html> 
+{% extends 'base.html' %} 
+{% block content %}
+<form action="{{ url_for('welcome') }}" method="post" class="w3-container">
+    <p>
+        <label for="username">Username:</label>
+        <input class="w3-input" type="text"id="username" name="username">
+    </p>
+    <p>     
+        <label for="password">Password:</label>
+        <input class="w3-input" type="password"id="password" name="password">
+    </p>
+    <p>
+        <button class="w3-button w3-block button-color" type="submit">Login</button>
+    </p>
+</form>
+{% endblock %}

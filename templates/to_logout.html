@@ -1,0 +1,6 @@
+    {% if user %}
+        <p>Logged as: {{ user['username'] }} | <a class="link-color" href="{{url_for('logout_user')}}">Déconnexion</a></p>
+        <button onclick="history.back()">Go Back</button>
+    {% elif admin %}
+        <p>Logged as: {{ admin.login }} | <a class="link-color" href="{{url_for('logout_admin')}}">Déconnexion</a></p>
+    {% endif %}  

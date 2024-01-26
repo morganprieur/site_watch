@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+{% include 'to_logout.html' %} 
+
+    <section class="content">
+
+        <form action="{{ url_for('dashboard') }}" method="post">
+            <input type="hidden" id="admin" name="admin" value="{{ admin.login }}">
+            <button class="w3-button w3-block button-color" type="submit">Retour dashboard</button>
+        </form>
+
+        <form action="{{ url_for('dashboard') }}" method="post">
+            <p>
+                <label for="username">Username :</label>
+                <input type="text" id="username" name="username">
+            </p>
+            <p>
+                <label for="user_pass">Password :</label>
+                <input type="password" id="user_pass" name="user_pass">
+            </p>
+            <input type="hidden" id="admin" name="admin" value="{{ admin['login'] }}">
+            <p>
+                <button class="w3-button w3-block button-color" type="submit">Enregister</button>
+            </p>
+        </form>
+
+    </section> 
+
+{% endblock %} 

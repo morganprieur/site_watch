@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+    <section class="content">
+        {% include 'to_logout.html' %} 
+        {% include 'result.html' %} 
+    
+        {% include 'view_premises.html' %} 
+
+        {% include 'view_users.html' %} 
+
+        {% include 'view_admins.html' %} 
+
+    </section>
+{% endblock %}
+

@@ -1,0 +1,11 @@
+{% block result %} 
+
+{% if message %} 
+    {% if message == 'Success' %}
+        <p class="success-msg">{{ message }}</p> 
+    {% else %}
+        <p class="w3-red">{{ message }}</p>
+    {% endif %} 
+{% endif %} 
+
+{% endblock %} 

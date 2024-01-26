@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+{% extends 'base.html' %} 
+
+
+{% block content %} 
+
+{% include 'to_logout.html' %} 
+
+<section class="content">
+    <table class="objects_list w3-table w3-striped">
+        <tr class="w3-green">
+            <th>PREMISE ID</th>
+            <th>Camera IP</th>
+        </tr>
+        {% for camera in cameras %} 
+        <tr>
+            <td> 
+                <form action="{{ url_for('livestream') }}" method="post">
+                    <input type="hidden" id="username" name="username" value="{{ user['username'] }}" />
+                    <input type="hidden" id="camera_id" name="camera_id" value="{{ camera.id }}" />
+                        <button class="w3-button w3-block button-color" type="submit">{{ camera.id }}</button>
+                </form>
+            </td>
+            <td>
+                    {{ camera.ip }} 
+            </td>
+        </tr> 
+        {% endfor %}
+    </table> 
+</section>
+{% endblock %}
