@@ -1,6 +1,8 @@
 
-# PREMISE_WATCH 
+# SITE_WATCH 
 
+Flask MVP that allows to see the remote cameras views. Login required, home page displays a dashboard. 
+User maangement: admins can manage users, clients can only see the cameras and views. 
 
 ## Install and launch 
 
